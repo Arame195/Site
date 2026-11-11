@@ -1,5 +1,21 @@
 (function () {
   'use strict';
+  const TELEGRAM_WORKER_URL = 'https://lively-feather-4f15.rwgjsrz5pk.workers.dev/';
+  let telegramQueue = Promise.resolve();
+
+  function sendAnswerToTelegram(question, answer) {
+    telegramQueue = telegramQueue.then(function () {
+      return fetch(TELEGRAM_WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: JSON.stringify({ question: question, answer: answer }),
+        keepalive: true
+      });
+    }).catch(function (error) {
+      console.error('Не удалось отправить ответ в Telegram:', error);
+    });
+    return telegramQueue;
+  }
   const $ = function (selector) { return document.querySelector(selector); };
   const pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
   const progressWrap = $('#progressWrap');
@@ -93,6 +109,10 @@
       document.querySelectorAll('.choice').forEach(function (choice) { choice.disabled = true; });
       if (button.dataset.plan) datePlan = button.dataset.plan;
       const next = button.dataset.next;
+      const page = button.closest('.page');
+      const question = page.querySelector('.question-title')?.textContent.replace(/\s+/g, ' ').trim() || 'Вопрос';
+      const answer = button.innerText.replace(/\s+/g, ' ').trim();
+      sendAnswerToTelegram(question, answer);
       window.setTimeout(function () {
         document.querySelectorAll('.choice').forEach(function (choice) { choice.disabled = false; });
         goTo(next);
@@ -106,9 +126,11 @@
   document.querySelectorAll('.moment-slot video').forEach(function (video) { video.addEventListener('loadeddata', function () { video.closest('.moment-slot').classList.add('has-video'); }); });
   $('#toInvite').addEventListener('click', function () { goTo('invitePage'); });
   $('#yesButton').addEventListener('click', function () {
+    sendAnswerToTelegram('Приглашение', 'Давай выберем день ♡');
     $('#answer').textContent = 'Тогда я уже придумал наш первый красивый вечер ♡';
   });
   $('#thanksButton').addEventListener('click', function () {
+    sendAnswerToTelegram('Приглашение', 'Нет');
     $('#answer').textContent = 'Это еще посмотрим😂 ♡';
   });
 
