@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#24171f">
+  <meta name="description" content="Маленькая история, написанная для Сайрины с теплом.">
+  <title>история для Сайрины</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js?v=20261105-1" defer></script>
+</head>
+
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="aura aura-one" aria-hidden="true"></div>
+  <div class="aura aura-two" aria-hidden="true"></div>
+  <div class="progress-wrap" id="progressWrap" aria-hidden="true">
+    <div class="progress-meta"><span>маленькая история</span><span id="progressLabel">шаг 1 из 8</span></div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <main>
+    <section class="page active" id="home" aria-label="Начало истории">
+      <div class="page-inner">
+        <div class="glass">
+          <p class="eyebrow">история для тебя</p>
+          <h1 class="hero-title">Сайрина,<br><em>это тебе</em></h1>
+          <p class="hero-copy">Внутри — пара любопытных вопросов, одна маленькая правда и кое-что очень красивое в
+            финале.</p>
+          <div class="envelope" id="envelope" aria-hidden="true">
+            <span class="envelope-back"></span><span class="envelope-left"></span><span
+              class="envelope-right"></span><span class="envelope-bottom"></span><span
+              class="envelope-flap"></span><span class="envelope-seal">♡</span>
+          </div>
+          <button class="primary" id="startButton" type="button">Открыть записку <span
+              aria-hidden="true">→</span></button>
+          <p class="button-note">здесь нет неправильных ответов ✧</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="q1" data-step="1" aria-label="Вопрос первый" aria-hidden="true">
+      <div class="page-inner">
+        <div class="glass question-card">
+          <p class="eyebrow">вопрос первый</p>
+          <h2 class="question-title">Что почти всегда делает день чуточку лучше?</h2>
+          <p class="question-copy">Выбирай сердцем. Это просто маленькая игра.</p>
+          <div class="choices">
+            <button class="choice" data-next="q2" type="button"><span class="choice-mark">✿</span><span>Любимая песня в
+                нужный момент</span></button>
+            <button class="choice" data-next="q2" type="button"><span class="choice-mark">☕</span><span>Тёплый разговор
+                за чашкой кофе</span></button>
+            <button class="choice" data-next="q2" type="button"><span class="choice-mark">♡</span><span>Неожиданное
+                внимание без повода</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="q2" data-step="2" aria-label="Вопрос второй" aria-hidden="true">
+      <div class="page-inner">
+        <div class="glass question-card">
+          <p class="eyebrow">вопрос второй</p>
+          <h2 class="question-title">А какой вечер выбрала бы ты?</h2>
+          <p class="question-copy">Представь, что никуда не нужно спешить.</p>
+          <div class="choices">
+            <button class="choice" data-next="q3" type="button"><span class="choice-mark">✧</span><span>Прогулка, когда
+                загораются фонари</span></button>
+            <button class="choice" data-next="q3" type="button"><span class="choice-mark">☕</span><span>Кофе и разговор
+                обо всём на свете</span></button>
+            <button class="choice" data-next="q3" type="button"><span class="choice-mark">🎁</span><span>Просто погулять с тобой, хоть по улицам)</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="q3" data-step="3" aria-label="Последний вопрос" aria-hidden="true">
+      <div class="page-inner">
+        <div class="glass question-card">
+          <p class="eyebrow">последний вопрос — обещаю</p>
+          <h2 class="question-title">Я смог тебя порадовать сегодня?)</h2>
+          <p class="question-copy">Запомню твой выбор</p>
+          <div class="choices">
+            <button class="choice" data-next="note" data-plan="Дааа" type="button"><span
+                class="choice-mark">♡</span><span>Да, Все очень красиво. Ты мне настроение поднял❤️</span></button>
+            <button class="choice" data-next="note" data-plan="да" type="button"><span
+                class="choice-mark">♡</span><span>Да</span></button>
+            <button class="choice" data-next="note" data-plan="нет" type="button"><span
+                class="choice-mark"></span><span>Нет</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="note" data-step="4" aria-label="Небольшое признание" aria-hidden="true">
+      <div class="page-inner">
+        <article class="glass note-card">
+          <div class="note-top"><span class="note-label">а теперь — честно</span><span aria-hidden="true">♡</span></div>
+          <h2 class="note-title">Сайрина,<br>Я тебя люблю очень сильно❤️</h2>
+          <div class="note-copy">
+            <p>Сайрина, я тебя люблю очень сильно</p>
+            <p>Я долго думал, что могу сделать для тебя чтобы твой день сделать еще лучше и чтобы поднять твое настроение. Знаешь, ты та самая девушка, которая смогла мне подарить улыбку и спокойствие в душе.</p>
+            <p>Знаешь когда ты заболела, у меня тогда просто сердце разрывалось я не знал, что мне делать можно. Я переживал очень сильно за тебя и просто хотел, <strong>чтобы это все просто передалось мне и чтобы с тобой все было хорошо.</strong></p>
+            <p>Мне очень приятно, слушать тебя, слушать твои истории, общаться с тобой хоть по 24/7 и вообще не уставать от этого. Люблю слушать твои голосовые и иногда настолько восхищаюсь твоим голосом, что забываю понимать, что ты говоришь😂❤️</p>
+            <p>Между нами бывают недопонимание, да бывает обижаю тебя не понимая этого, прости за это меня <strong> ну твой ревнивый дурак😂</strong>. Я надеюсь смог, тебя порадовать сегодня. Ты мне даешь силу, силу которая помогает мне работать больше и сделать больше, чем я смогу. <strong>Пока ты со мной, со мной ничего не будет Принцесса моя👸🏻❤️</strong></p>
+          </div>
+          <p class="note-sign">от всего сердца ♡</p>
+          <button class="primary" id="toPortrait" type="button">И ещё кое-что <span aria-hidden="true">→</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="portraitPage" data-step="5" aria-label="Фотография Сайрины" aria-hidden="true">
+      <div class="page-inner">
+        <div class="photo-layout">
+          <div class="photo-text">
+            <p class="eyebrow">самая красивая часть истории</p>
+            <h2 class="photo-title">У этой истории<br>есть <em>главная героиня</em></h2>
+            <p class="photo-copy">Я хотел, чтобы ты увидела себя здесь такой, какая ты есть — без фильтров и без спешки.
+              Просто красивой.</p>
+            <button class="primary" id="toMoments" type="button">Наши моменты <span
+                aria-hidden="true">→</span></button>
+          </div>
+          <div>
+            <div class="portrait-frame"><img src="5445092206126506372.jpg" alt="Сайрина" decoding="async"></div>
+            <p class="portrait-caption">и это ещё не весь сюрприз ✧</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="momentsPage" data-step="6" aria-label="Наши моменты" aria-hidden="true">
+      <div class="page-inner">
+        <div class="glass moments-card">
+          <p class="eyebrow">маленькая коллекция воспоминаний</p>
+          <h2 class="moments-title">Помнишь <em>этот момент?</em></h2>
+          <p class="moments-copy">Помнишь, как ты стеснялась даже выходить?)) А теперь мы можем хоть часами разговаривать в реальной жизни)</p>
+          <div class="moment-grid">
+            <div class="moment-slot"><video controls playsinline preload="metadata" aria-label="Первое наше видео"><source src="IMG_6446.MOV" type="video/mp4"></video><span class="moment-hint">♡ Момент 1 · добавь файл video-1.mp4</span></div>
+          </div>
+          <button class="primary" id="momentsNext" type="button">Продолжить <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+    <section class="page" id="bouquetPage" data-step="7" aria-label="Сюрприз с розами" aria-hidden="true">
+      <div class="page-inner">
+        <div class="glass flower-card">
+          <p class="eyebrow">Вот тут должна была быть еще один сюрприз, но чуть проблемы, я не смог(</p>
+          <p><strong>НО, скоро будет это и ты поймешь что должно было быть на этом экране❤️</strong><br><em>Тебе интересно, что будет?</em></p>
+          <button class="primary" id="toInvite" type="button">идем дальше)<span
+              aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="invitePage" data-step="8" aria-label="Приглашение" aria-hidden="true">
+      <div class="page-inner">
+        <div class="glass invite-card">
+          <p class="eyebrow">и один вопрос напоследок</p>
+          <h2 class="invite-title">погуляем скоро<br><em>по улицам (не в городе)?</em></h2>
+          <p class="chosen-plan" id="chosenPlan"></p>
+          <p class="invite-copy">Я думаю можем попробовать и погулять хорошо, провести один вечер вместе и болтать обо всем))</p>
+          <div class="invite-actions">
+            <button class="primary" id="yesButton" type="button">Давай выберем день ♡</button>
+            <button class="secondary" id="thanksButton" type="button">Нет</button>
+          </div>
+          <button class="secondary heart-link" id="toHeart" type="button">И ещё один маленький сюрприз ✨</button>
+          <p class="answer" id="answer" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+    <section class="page heart-page" id="heartPage" data-step="9" aria-label="Сердечки собирают фотографию"
+      aria-hidden="true">
+      <canvas id="heartCanvas" aria-hidden="true"></canvas>
+      <div class="heart-layout">
+        <div class="heart-photo-column">
+          <div class="heart-photo-frame" id="heartPhotoFrame">
+            <img id="heartPhoto" src="IMG_2455.JPG" alt="Портрет Сайрины">
+          </div>
+          <div id="heartOrbitFallback" aria-hidden="true"></div>
+          <p class="heart-photo-caption" id="heartCaption">каждое сердечко — с теплом</p>
+        </div>
+        <div class="heart-message">
+          <p class="eyebrow">последняя маленькая магия</p>
+          <h2 class="heart-title" id="heartTitle">Можно я соберу<br><em>твою улыбку?</em></h2>
+          <p class="heart-copy" id="heartCopy">Нажми на кнопку — и смотри, как сердечки сложатся в твою фотографию.</p>
+          <button class="primary" id="heartStart" type="button">Собрать сердечками ♡</button>
+          <button class="secondary replay-button" id="heartReplay" type="button" hidden>Посмотреть ещё раз</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <p class="signature">с теплом — от человека, которому ты очень нравишься</p>
+</body>
+
+</html>
